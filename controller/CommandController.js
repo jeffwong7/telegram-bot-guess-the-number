@@ -9,13 +9,14 @@ function initCommandController(bot) {
     game = null;
     isStart = false;
     bot.command("/start", (ctx) => {
+        var userid = ctx.update.message.from.id;
         var startToken = ctx.update.message.text.split(" ");
         var costEveryTime = Number(startToken[1]);
         if (isNaN(costEveryTime))
             return ctx.reply("比個數字黎啊仆街!");
         if (isStart)
             return ctx.reply("上一round都未玩完!");
-        game = new Game(costEveryTime);
+        game = new Game(costEveryTime, userid);
         isStart = true;
         ctx.reply(`開口中開始 \n1 - 100`);
     });
