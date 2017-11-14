@@ -57,6 +57,8 @@ function initCommandController(bot) {
         ctx.reply(`個pool而家有 $ ${game.pool}`);
     });
     bot.command("/end", (ctx) => {
+        if (!Util.isObjDefined(game))
+            return ctx.reply("仆街，打 /start [number] 開始遊戲啊");
         if (ctx.update.message.from.id != game.creatorid)
             return ctx.reply("未完啊，繼續玩!");
         game = null;
