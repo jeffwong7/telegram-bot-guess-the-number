@@ -13,6 +13,8 @@ function initCommandController(bot) {
         var costEveryTime = Number(startToken[1]);
         if (isNaN(costEveryTime))
             return ctx.reply("比個數字黎啊仆街!");
+        if (isStart)
+            return ctx.reply("上一round都未玩完!");
         game = new Game(costEveryTime);
         isStart = true;
         ctx.reply(`開口中開始 \n1 - 100`);
@@ -54,6 +56,8 @@ function initCommandController(bot) {
         ctx.reply(`個pool而家有 $ ${game.pool}`);
     });
     bot.command("/end", (ctx) => {
+        if (ctx.update.message.from.id != game.creatorid)
+            return ctx.reply("未完啊，繼續玩!");
         game = null;
         isStart = false;
         ctx.reply(`玩完`);
