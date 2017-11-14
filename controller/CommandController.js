@@ -16,6 +16,8 @@ function initCommandController(bot) {
             return ctx.reply("比個數字黎啊仆街!");
         if (isStart)
             return ctx.reply("上一round都未玩完!");
+        if (costEveryTime <= 0)
+            return ctx.reply("頂你呀，cost要大過0!");
         game = new Game(costEveryTime, userid);
         isStart = true;
         ctx.reply(`開口中開始 \n1 - 100`);
