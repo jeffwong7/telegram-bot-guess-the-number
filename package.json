@@ -1,0 +1,13 @@
+{
+  "name": "telegram-greed-game-bot",
+  "version": "0.1.0",
+  "description": "Telegram Greed Game",
+  "main": "index.js",
+  "repository": "",
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "lowdb": "^1.0.0",
+    "telegraf": "^3.15.3"
+  }
+}
