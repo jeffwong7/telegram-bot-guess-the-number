@@ -13,7 +13,7 @@ class Game {
         this.higher = 100;
         this.pool = 0;
         this.end = false;
-        this.creatorid = creatoris;
+        this.creatorid = creatorid;
         this.secretNumber = Math.floor((Math.random() * 98) + 1) + 1;
     }
 
