@@ -27,10 +27,10 @@ function initCommandController(bot) {
             return ctx.reply("比個數字黎啊仆街!");
         guessNumber = Math.floor(guessNumber);
         var user_balance = DatabaseController.getBalance(userid);
-        var name = `${ctx.update.message.from.first_name} ${ctx.update.message.from.last_name}`
+        var name = `${ctx.update.message.from.first_name}`
         if (user_balance < game.costEveryTime)
             return ctx.reply(`${name}: 冇錢就唔好學人玩開口中啦`);
-        var broadcast_text = game.placeOrder(userid, guessNumber);
+        var broadcast_text = game.placeOrder(userid, guessNumber, name);
         ctx.reply(broadcast_text);
         if (game.end) {
             game = null;
@@ -39,7 +39,7 @@ function initCommandController(bot) {
     });
     bot.command("/coin", (ctx) => {
         var userid = ctx.update.message.from.id;
-        var name = `${ctx.update.message.from.first_name} ${ctx.update.message.from.last_name}`
+        var name = `${ctx.update.message.from.first_name}`
         var user_balance = DatabaseController.getBalance(userid);
         ctx.reply(`${name}: 你的賬號尚有 $ ${user_balance}`);
     });

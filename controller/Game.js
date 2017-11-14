@@ -4,14 +4,16 @@ const DatabaseController = require("./DatabaseController.js");
 class Game {
     //createTime;
     //costEveryTime;
+    //creatorid;
 
-    constructor(costEveryTime) {
+    constructor(costEveryTime, creatorid = 0) {
         this.createTime = DateUtil.getMySQLFormat(new Date());
         this.costEveryTime = costEveryTime;
         this.lower = 1;
         this.higher = 100;
         this.pool = 0;
         this.end = false;
+        this.creatorid = creatoris;
         this.secretNumber = Math.floor((Math.random() * 98) + 1) + 1;
     }
 
